@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "2.12.7"
+ThisBuild / scalaVersion := "2.12.8"
 ThisBuild / version := "1.0-SNAPSHOT"
 ThisBuild / organization := "com.baeldung"
 ThisBuild / organizationName := "core-scala"
@@ -66,8 +66,10 @@ lazy val scala_core_oop = (project in file("scala-core-oop"))
 lazy val scala_core_fp = (project in file("scala-core-fp"))
   .settings(
     name := "scala-core-fp",
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full),
     libraryDependencies ++=
       Seq(
+        catsCore,
         scalaTest,
         junit)
   )
